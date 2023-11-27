@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import androidx.room.Room
 import com.mtd.electrica.common.roomDb.AppDatabase
+import com.mtd.electrica.utils.IP
 import com.mtd.electrica.utils.RetrofitConstants.BASE_URL
 import com.mtd.electrica.utils.RoomConstants.ELECTRICA_DATABASE_NAME
 import dagger.Module
@@ -40,8 +41,8 @@ class CommonModule {
         okHttpClient: OkHttpClient,
     ): Retrofit = Retrofit
         .Builder()
-        .baseUrl("http://10.132.66.30:55008/")
-       // .baseUrl("http://10.0.2.2:8085/") for localhostz
+        //.baseUrl("http://$IP:55008/")
+        .baseUrl("http://10.0.2.2:8085/") //for localhostz
         .client(okHttpClient)
         .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
         .addConverterFactory(GsonConverterFactory.create())
@@ -53,8 +54,8 @@ class CommonModule {
         okHttpClient: OkHttpClient,
     ): Retrofit = Retrofit
         .Builder()
-        .baseUrl("http://10.132.66.30:55010/")
-        //        .baseUrl("http://10.0.2.2:8086/") for localhost
+       // .baseUrl("http://${IP}:55010/")
+        .baseUrl("http://10.0.2.2:8086/")// for localhost
         .client(okHttpClient)
         .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
         .addConverterFactory(GsonConverterFactory.create())

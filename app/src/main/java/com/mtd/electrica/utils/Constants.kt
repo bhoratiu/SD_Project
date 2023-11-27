@@ -11,3 +11,7 @@ object RetrofitConstants {
 object RoomConstants {
     const val ELECTRICA_DATABASE_NAME = "electricaDatabase"
 }
+
+object IP {
+    const val IP = "192.168.43.60"
+}
