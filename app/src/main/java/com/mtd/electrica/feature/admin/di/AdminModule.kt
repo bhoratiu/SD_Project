@@ -8,6 +8,7 @@ import com.mtd.electrica.feature.signin.data.dataSource.remote.LoginAPI
 import com.mtd.electrica.feature.signin.data.repository.UserRepository
 import com.mtd.electrica.feature.signin.data.repository.UserRepositoryImpl
 import com.mtd.electrica.feature.user.data.dataSource.remote.UserAPI
+import com.mtd.electrica.feature.user.data.dataSource.remote.WebSocketAPI
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -26,4 +27,8 @@ object AppModule {
     @Provides
     fun provideUserAPI(@Named("Service8086") retrofit: Retrofit): AdminAPI =
         retrofit.create(AdminAPI::class.java)
+
+    @Provides
+    fun provideWebSocketAPI(@Named("Service8087") retrofit: Retrofit): WebSocketAPI =
+        retrofit.create(WebSocketAPI::class.java)
 }

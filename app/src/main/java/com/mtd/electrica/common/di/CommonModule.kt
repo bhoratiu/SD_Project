@@ -4,7 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import androidx.room.Room
 import com.mtd.electrica.common.roomDb.AppDatabase
-import com.mtd.electrica.utils.IP
+import com.mtd.electrica.utils.IP.IP
 import com.mtd.electrica.utils.RetrofitConstants.BASE_URL
 import com.mtd.electrica.utils.RoomConstants.ELECTRICA_DATABASE_NAME
 import dagger.Module
@@ -41,8 +41,8 @@ class CommonModule {
         okHttpClient: OkHttpClient,
     ): Retrofit = Retrofit
         .Builder()
-        //.baseUrl("http://$IP:55008/")
-        .baseUrl("http://10.0.2.2:8085/") //for localhostz
+       .baseUrl("http://$IP:55015/")
+        //.baseUrl("http://10.0.2.2:8085/") //for localhostz
         .client(okHttpClient)
         .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
         .addConverterFactory(GsonConverterFactory.create())
@@ -54,8 +54,22 @@ class CommonModule {
         okHttpClient: OkHttpClient,
     ): Retrofit = Retrofit
         .Builder()
-       // .baseUrl("http://${IP}:55010/")
-        .baseUrl("http://10.0.2.2:8086/")// for localhost
+        .baseUrl("http://${IP}:55016/")
+        //baseUrl("http://10.0.2.2:8086/")// for localhost
+        .client(okHttpClient)
+        .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
+        .addConverterFactory(GsonConverterFactory.create())
+        .build()
+
+    @Provides
+    @Named("Service8087")
+    fun provideRetrofitService8087(
+        okHttpClient: OkHttpClient,
+    ): Retrofit = Retrofit
+        .Builder()
+        //.baseUrl("http://rabbitmq-app:8087/")
+        .baseUrl("http://${IP}:8087/")
+       // .baseUrl("http://10.0.2.2:8088/")// for localhost
         .client(okHttpClient)
         .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
         .addConverterFactory(GsonConverterFactory.create())

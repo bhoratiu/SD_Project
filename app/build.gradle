@@ -106,4 +106,7 @@ dependencies {
 
     //web-socket
     implementation 'com.squareup.okhttp3:okhttp:4.11.0'
+    implementation 'org.java-websocket:Java-WebSocket:1.5.1'
+
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
 }

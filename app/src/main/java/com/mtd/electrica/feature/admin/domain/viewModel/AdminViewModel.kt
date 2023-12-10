@@ -12,7 +12,6 @@ import com.mtd.electrica.feature.signin.domain.useCase.GetAllUsersUseCase
 import com.mtd.electrica.feature.signin.domain.useCase.RegisterUseCase
 import com.mtd.electrica.feature.signin.domain.viewModel.UserViewModel
 import com.mtd.electrica.feature.user.data.repository.Device
-import com.mtd.electrica.feature.user.data.repository.DeviceRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
