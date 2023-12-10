@@ -76,4 +76,14 @@ public class DeviceController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to unlink devices");
         }
     }
+
+    @PostMapping("/{deviceId}/associateUser")
+    public ResponseEntity<?> associateUserWithDevice(@PathVariable Long deviceId, @RequestBody Long userId) {
+        boolean isAssociated = deviceService.associateUserWithDevice(deviceId, userId);
+        if (isAssociated) {
+            return ResponseEntity.ok("User associated with device successfully");
+        } else {
+            return ResponseEntity.badRequest().body("Failed to associate user with device");
+        }
+    }
 }

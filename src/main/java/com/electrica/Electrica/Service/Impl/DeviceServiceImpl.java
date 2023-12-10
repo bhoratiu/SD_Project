@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.electrica.Electrica.Service.DeviceService;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -97,5 +98,16 @@ public class DeviceServiceImpl implements DeviceService {
             device.getUserIds().remove(userId);
             deviceRepository.save(device);
         }
+    }
+
+    public boolean associateUserWithDevice(Long deviceId, Long userId) {
+        Optional<Device> deviceOptional = deviceRepository.findById(deviceId);
+        if (deviceOptional.isPresent()) {
+            Device device = deviceOptional.get();
+            device.getUserIds().add(userId);
+            deviceRepository.save(device);
+            return true;
+        }
+        return false;
     }
 }

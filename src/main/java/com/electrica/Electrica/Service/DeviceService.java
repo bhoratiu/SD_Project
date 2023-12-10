@@ -27,4 +27,6 @@ public interface DeviceService {
     List<Device> getUserDevices(Long userId);
 
     void unlinkUserDevices(Long userId);
+
+    boolean associateUserWithDevice(Long deviceId, Long userId);
 }

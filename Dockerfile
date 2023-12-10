@@ -25,14 +25,3 @@ EXPOSE 8086
 USER app
 
 CMD /opt/app/run.sh
-
-
-
-
-
-
-
-
-
-
-
